@@ -18,9 +18,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark kanaf-navbar py-3 sticky-top">
       <div class="container">
         <a class="navbar-brand d-flex align-items-center gap-2 fw-bold fs-4" href="index.html">
-          <!-- <img src="assets/images/logo.png" alt="شعار كنف" height="70" width="120" id="nav-brand-logo"
-                style="object-fit: cover;"> -->
-          <span id="nav-brand-text">منصة كَنَفْ</span>
+          <img src="../assets/images/logo.png" alt="شعار كنف" height="50" width="110" id="nav-brand-logo"
+            style="object-fit:contain;">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"
           aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,95 +77,99 @@
     </nav>
   </header>
 
+  <main>
+    <section class="flex-grow-1 d-flex align-items-center py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 col-md-9">
+            <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm border text-center">
+              <h3 class="fw-bold text-primary-green mb-1">تسجيل حساب كنف جديد</h3>
+              <p class="text-muted text-small mb-4">انضم لعائلات وأوصياء أيتامنا أو ابدأ رحلة الكفالة والإحسان الشامل
+              </p>
 
-  <section class="flex-grow-1 d-flex align-items-center py-5">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-6 col-md-9">
-          <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm border text-center">
-            <h3 class="fw-bold text-primary-green mb-1">تسجيل حساب كنف جديد</h3>
-            <p class="text-muted text-small mb-4">انضم لعائلات وأوصياء أيتامنا أو ابدأ رحلة الكفالة والإحسان الشامل</p>
+              <form id="register-form" class="needs-validation" novalidate>
 
-            <form id="register-form" class="needs-validation" novalidate>
-
-              <!-- Select user type -->
-              <div class="row mb-4">
-                <div class="col-6">
-                  <div
-                    class="form-check form-check-inline p-3 border rounded-3 w-100 text-start bg-light cursor-pointer"
-                    onclick="document.getElementById('role-sponsor').click()">
-                    <input class="form-check-input" type="radio" name="accountRole" id="role-sponsor" value="sponsor"
-                      checked>
-                    <label class="form-check-label fw-bold text-dark block text-small cursor-pointer"
-                      for="role-sponsor">أنا كافل جديد</label>
-                    <p class="text-muted text-caption mb-0">أريد تصفح الأيتام وكفالتهم مباشرة.</p>
+                <!-- Select user type -->
+                <div class="row mb-4">
+                  <div class="col-6">
+                    <div
+                      class="form-check form-check-inline p-3 border rounded-3 w-100 text-start bg-light cursor-pointer"
+                      onclick="document.getElementById('role-sponsor').click()">
+                      <input class="form-check-input" type="radio" name="accountRole" id="role-sponsor" value="sponsor"
+                        checked>
+                      <label class="form-check-label fw-bold text-dark block text-small cursor-pointer"
+                        for="role-sponsor">أنا كافل جديد</label>
+                      <p class="text-muted text-caption mb-0">أريد تصفح الأيتام وكفالتهم مباشرة.</p>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div
+                      class="form-check form-check-inline p-3 border rounded-3 w-100 text-start bg-light cursor-pointer"
+                      onclick="document.getElementById('role-guardian').click()">
+                      <input class="form-check-input" type="radio" name="accountRole" id="role-guardian"
+                        value="guardian">
+                      <label class="form-check-label fw-bold text-dark block text-small cursor-pointer"
+                        for="role-guardian">أنا وصي يتيم</label>
+                      <p class="text-muted text-caption mb-0">أريد تسجيل أطفالنا اليتامى لطلب كفلاء.</p>
+                    </div>
                   </div>
                 </div>
-                <div class="col-6">
-                  <div
-                    class="form-check form-check-inline p-3 border rounded-3 w-100 text-start bg-light cursor-pointer"
-                    onclick="document.getElementById('role-guardian').click()">
-                    <input class="form-check-input" type="radio" name="accountRole" id="role-guardian" value="guardian">
-                    <label class="form-check-label fw-bold text-dark block text-small cursor-pointer"
-                      for="role-guardian">أنا وصي يتيم</label>
-                    <p class="text-muted text-caption mb-0">أريد تسجيل أطفالنا اليتامى لطلب كفلاء.</p>
+
+                <div class="row g-3 text-start mb-4">
+                  <div class="col-md-12">
+                    <label for="reg-name" class="form-label text-small fw-semibold text-muted">الاسم الكامل المطابق
+                      للهوية</label>
+                    <input type="text" class="form-control" id="reg-name" placeholder="الاسم الكامل باللغة العربية"
+                      required>
+                    <div class="invalid-feedback">يرجى كتابة الاسم الكامل.</div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="reg-email" class="form-label text-small fw-semibold text-muted">البريد
+                      الإلكتروني</label>
+                    <input type="email" class="form-control" id="reg-email" placeholder="example@domain.com" required>
+                    <div class="invalid-feedback">يرجى إدخال حساب بريدي رسمي.</div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="reg-phone" class="form-label text-small fw-semibold text-muted">رقم الجوال لتلقي
+                      التوثيق</label>
+                    <input type="tel" class="form-control" id="reg-phone" placeholder="05xxxxxxxx"
+                      pattern="^05[0-9]{8}$" required>
+                    <div class="invalid-feedback">يرجى إدراج جوال سعودي صحيح يبدأ بـ 05.</div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="reg-pass" class="form-label text-small fw-semibold text-muted">كلمة المرور</label>
+                    <input type="password" class="form-control" id="reg-pass" minlength="6"
+                      placeholder="أدخل 6 خانات رموز وأحرف على الأقل" required>
+                    <div class="invalid-feedback">يرجى وضع كلمة مرور قوية بحد أدنى 6 خانات.</div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="reg-confirm" class="form-label text-small fw-semibold text-muted">تأكيد كلمة
+                      المرور</label>
+                    <input type="password" class="form-control" id="reg-confirm" minlength="6"
+                      placeholder="تطابق كلمة المرور" required>
+                    <div class="invalid-feedback">يرجى التحقق من تطابق الرقم السري.</div>
                   </div>
                 </div>
-              </div>
 
-              <div class="row g-3 text-start mb-4">
-                <div class="col-md-12">
-                  <label for="reg-name" class="form-label text-small fw-semibold text-muted">الاسم الكامل المطابق
-                    للهوية</label>
-                  <input type="text" class="form-control" id="reg-name" placeholder="الاسم الكامل باللغة العربية"
-                    required>
-                  <div class="invalid-feedback">يرجى كتابة الاسم الكامل.</div>
+                <button type="submit" class="btn btn-primary w-full py-2 fw-bold fs-5 shadow-xs mb-3">إنشاء وتوثيق
+                  حسابي</button>
+
+                <div class="text-center text-small text-muted mb-0">
+                  <span>لديك حساب بالفعل؟</span> <a href="login.html"
+                    class="text-primary-green text-decoration-none fw-bold">تسجيل الدخول</a>
                 </div>
+              </form>
 
-                <div class="col-md-6">
-                  <label for="reg-email" class="form-label text-small fw-semibold text-muted">البريد الإلكتروني</label>
-                  <input type="email" class="form-control" id="reg-email" placeholder="example@domain.com" required>
-                  <div class="invalid-feedback">يرجى إدخال حساب بريدي رسمي.</div>
-                </div>
-
-                <div class="col-md-6">
-                  <label for="reg-phone" class="form-label text-small fw-semibold text-muted">رقم الجوال لتلقي
-                    التوثيق</label>
-                  <input type="tel" class="form-control" id="reg-phone" placeholder="05xxxxxxxx" pattern="^05[0-9]{8}$"
-                    required>
-                  <div class="invalid-feedback">يرجى إدراج جوال سعودي صحيح يبدأ بـ 05.</div>
-                </div>
-
-                <div class="col-md-6">
-                  <label for="reg-pass" class="form-label text-small fw-semibold text-muted">كلمة المرور</label>
-                  <input type="password" class="form-control" id="reg-pass" minlength="6"
-                    placeholder="أدخل 6 خانات رموز وأحرف على الأقل" required>
-                  <div class="invalid-feedback">يرجى وضع كلمة مرور قوية بحد أدنى 6 خانات.</div>
-                </div>
-
-                <div class="col-md-6">
-                  <label for="reg-confirm" class="form-label text-small fw-semibold text-muted">تأكيد كلمة
-                    المرور</label>
-                  <input type="password" class="form-control" id="reg-confirm" minlength="6"
-                    placeholder="تطابق كلمة المرور" required>
-                  <div class="invalid-feedback">يرجى التحقق من تطابق الرقم السري.</div>
-                </div>
-              </div>
-
-              <button type="submit" class="btn btn-primary w-full py-2 fw-bold fs-5 shadow-xs mb-3">إنشاء وتوثيق
-                حسابي</button>
-
-              <div class="text-center text-small text-muted mb-0">
-                <span>لديك حساب بالفعل؟</span> <a href="login.html"
-                  class="text-primary-green text-decoration-none fw-bold">تسجيل الدخول</a>
-              </div>
-            </form>
-
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer class="kanaf-footer py-5 mt-5 pb-0">
     <div class="container py-4">

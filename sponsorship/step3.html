@@ -16,9 +16,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark kanaf-navbar py-3 sticky-top">
       <div class="container">
         <a class="navbar-brand d-flex align-items-center gap-2 fw-bold fs-4" href="index.html">
-          <!-- <img src="assets/images/logo.png" alt="شعار كنف" height="70" width="120" id="nav-brand-logo"
-                    style="object-fit: cover;"> -->
-          <span id="nav-brand-text">منصة كَنَفْ</span>
+          <img src="../assets/images/logo.png" alt="شعار كنف" height="50" width="110" id="nav-brand-logo"
+            style="object-fit:contain;">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"
           aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
@@ -75,171 +74,173 @@
       </div>
     </nav>
   </header>
-
-  <!-- Steps Indicator Progress bar -->
-  <section class="py-4 bg-white border-bottom shadow-xs">
-    <div class="container">
-      <div class="d-flex justify-content-between align-items-center max-w-xl mx-auto">
-        <div class="step-item completed">
-          <div class="step-indicator">1</div>
-          <span class="text-small fw-bold">اختيار اليتيم</span>
-        </div>
-        <div class="step-item completed">
-          <div class="step-indicator">2</div>
-          <span class="text-small fw-bold">بيانات الكافل</span>
-        </div>
-        <div class="step-item active">
-          <div class="step-indicator">3</div>
-          <span class="text-small fw-bold">الدفع والتأكيد</span>
+  <main>
+    <!-- Steps Indicator Progress bar -->
+    <section class="py-4 bg-white border-bottom shadow-xs">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center max-w-xl mx-auto">
+          <div class="step-item completed">
+            <div class="step-indicator">1</div>
+            <span class="text-small fw-bold">اختيار اليتيم</span>
+          </div>
+          <div class="step-item completed">
+            <div class="step-indicator">2</div>
+            <span class="text-small fw-bold">بيانات الكافل</span>
+          </div>
+          <div class="step-item active">
+            <div class="step-indicator">3</div>
+            <span class="text-small fw-bold">الدفع والتأكيد</span>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Step Contents -->
-  <section class="py-5">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8" id="payment-workspace">
+    <!-- Step Contents -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8" id="payment-workspace">
 
-          <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm border mb-4">
-            <h2 class="fw-bold text-primary-green mb-3 text-center">الخطوة الثالثة والأخيرة: المدفوعات وتأكيد الكفالة
-            </h2>
-            <p class="text-muted text-center mb-5">يرجى تحديد طريقة الدفع المناسبة لإيداع الكفالة الشهرية الأولى.</p>
+            <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm border mb-4">
+              <h2 class="fw-bold text-primary-green mb-3 text-center">الخطوة الثالثة والأخيرة: المدفوعات وتأكيد الكفالة
+              </h2>
+              <p class="text-muted text-center mb-5">يرجى تحديد طريقة الدفع المناسبة لإيداع الكفالة الشهرية الأولى.</p>
 
-            <div class="row g-4 mb-5">
-              <!-- Sidebar recap -->
-              <div class="col-md-5 order-md-2">
-                <div class="bg-light p-4 rounded-4 border">
-                  <h5 class="fw-bold text-dark mb-3">ملخص الكفالة</h5>
+              <div class="row g-4 mb-5">
+                <!-- Sidebar recap -->
+                <div class="col-md-5 order-md-2">
+                  <div class="bg-light p-4 rounded-4 border">
+                    <h5 class="fw-bold text-dark mb-3">ملخص الكفالة</h5>
 
-                  <div class="d-flex align-items-center gap-2 mb-3">
-                    <img src="../assets/images/salah-darwish-psl5zzj8wXo-unsplash.jpg" alt="أحمد محمد"
-                      class="rounded-circle shadow-xs" style="width:50px;height:50px;object-fit:cover;">
-                    <div>
-                      <h6 class="fw-bold mb-0 text-dark">
-                        أحمد محمد
-                      </h6>
-                      <span class="text-muted text-small">
-                        فلسطين - غزة
-                      </span>
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                      <img src="../assets/images/salah-darwish-psl5zzj8wXo-unsplash.jpg" alt="أحمد محمد"
+                        class="rounded-circle shadow-xs" style="width:50px;height:50px;object-fit:cover;">
+                      <div>
+                        <h6 class="fw-bold mb-0 text-dark">
+                          أحمد محمد
+                        </h6>
+                        <span class="text-muted text-small">
+                          فلسطين - غزة
+                        </span>
+                      </div>
+                    </div>
+
+                    <hr>
+                    <div class="d-flex justify-content-between mb-2 text-small">
+                      <span class="text-muted">مبلغ الكفالة الشهري</span>
+                      <span class="fw-bold text-dark" id="recap-base">$ 350</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2 text-small">
+                      <span class="text-muted">رسوم البوابة والضرائب</span>
+                      <span class="text-success fw-bold">كفالة خيرية (0%)</span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between align-items-center text-dark">
+                      <span class="fw-bold">المبلغ الإجمالي المحصل</span>
+                      <strong class="fs-4 text-primary-green" id="recap-total">$ 350</strong>
                     </div>
                   </div>
+                </div>
 
-                  <hr>
-                  <div class="d-flex justify-content-between mb-2 text-small">
-                    <span class="text-muted">مبلغ الكفالة الشهري</span>
-                    <span class="fw-bold text-dark" id="recap-base">$ 350</span>
+                <!-- Payment Form inputs -->
+                <div class="col-md-7 order-md-1">
+                  <h5 class="fw-bold mb-3 text-dark">اختر وسيلة إيداع الدفعة الأولى</h5>
+
+                  <!-- Payment methods tabs -->
+                  <div class="nav nav-pills gap-2 mb-4 d-flex" id="payment-tabs" role="tablist">
+                    <button class="nav-link flex-fill py-2 active text-center border" id="tab-card-btn"
+                      data-bs-toggle="pill" data-bs-target="#tab-card" type="button" role="tab" aria-selected="true">
+                      <i class="bi bi-credit-card-2-back me-1"></i> مدى / فيزا
+                    </button>
+                    <button class="nav-link flex-fill py-2 text-center border" id="tab-bank-btn" data-bs-toggle="pill"
+                      data-bs-target="#tab-bank" type="button" role="tab" aria-selected="false">
+                      <i class="bi bi-bank me-1"></i> تحويل مصرفي
+                    </button>
                   </div>
-                  <div class="d-flex justify-content-between mb-2 text-small">
-                    <span class="text-muted">رسوم البوابة والضرائب</span>
-                    <span class="text-success fw-bold">كفالة خيرية (0%)</span>
+
+                  <div class="tab-content" id="payment-tab-content">
+
+                    <!-- Tab: Card -->
+                    <div class="tab-pane fade show active" id="tab-card" role="tabpanel" aria-labelledby="tab-card-btn">
+                      <form id="card-pay-form" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                          <label class="form-label text-small fw-bold text-muted">اسم كرت الدفع (الاسم المكتوب على
+                            البطاقة)</label>
+                          <input type="text" class="form-control" placeholder="A. ALOTAIBI" required>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label text-small fw-bold text-muted">رقم البطاقة</label>
+                          <input type="text" class="form-control" placeholder="4000 1234 5678 9010"
+                            pattern="^[0-9 ]{16,19}$" required>
+                        </div>
+                        <div class="row g-2 mb-4">
+                          <div class="col-7">
+                            <label class="form-label text-small fw-bold text-muted">تاريخ الانتهاء</label>
+                            <input type="text" class="form-control text-center" placeholder="MM/YY" required>
+                          </div>
+                          <div class="col-5">
+                            <label class="form-label text-small fw-bold text-muted">الرقم السري (CVV)</label>
+                            <input type="password" class="form-control text-center" placeholder="123"
+                              pattern="^[0-9]{3,4}$" required>
+                          </div>
+                        </div>
+                        <a href="../sponsor/dashboard.html" class="btn btn-primary w-100 py-3 fw-bold fs-5">
+                          إتمام عملية الفوترة والدفع الآمن
+                        </a>
+                      </form>
+                    </div>
+
+                    <!-- Tab: Bank Bank Transfer -->
+                    <div class="tab-pane fade" id="tab-bank" role="tabpanel" aria-labelledby="tab-bank-btn">
+                      <div class="alert alert-info py-3 mb-4 text-small">
+                        <h6 class="fw-bold mb-2"><i class="bi bi-info-circle-fill me-1"></i> تعليمات التحويل المصرفي
+                        </h6>
+                        <p class="mb-0">يرجى تحويل مبلغ الكفالة إلى حساب "مؤسسة كنف لكفالة الأيتام" المعتمد أدناه، ثم
+                          كتابة رقم مرجع التحويل أو إشعار التحويل لتأكيد الكفالة يدوياً.</p>
+                      </div>
+
+                      <div class="bg-light p-3 rounded-3 border mb-4 text-small">
+                        <div class="mb-2"><strong>البنك:</strong> بنك فلسطين (حساب كفالة أيتام غزة المعتمد)</div>
+                        <div class="mb-2"><strong>اسم الحساب:</strong> كنف لبناء ورعاية أيتام فلسطين</div>
+                        <div class="mb-2"><strong>رقم الآيبان:</strong> PS24BOPD000000000120455621</div>
+                      </div>
+
+                      <form id="bank-pay-form" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                          <label class="form-label text-small fw-bold text-muted">رقم مرجع التحويل (الموجود في تطبيق
+                            بنكك)</label>
+                          <input type="text" id="bank-ref" class="form-control" placeholder="مثال: TRX9018227" required>
+                        </div>
+                        <div class="mb-4">
+                          <label class="form-label text-small fw-bold text-muted">إرفاق إشعار تحويل البنك
+                            (اختياري)</label>
+                          <input type="file" class="form-control text-small">
+                        </div>
+                        <a href="../sponsor/dashboard.html" class="btn btn-primary w-100 py-3 fw-bold fs-5 text-white">
+                          إرسال إشعار التحويل البنكي للمراجعة
+                        </a>
+                      </form>
+                    </div>
+
                   </div>
-                  <hr>
-                  <div class="d-flex justify-content-between align-items-center text-dark">
-                    <span class="fw-bold">المبلغ الإجمالي المحصل</span>
-                    <strong class="fs-4 text-primary-green" id="recap-total">$ 350</strong>
-                  </div>
+
                 </div>
               </div>
 
-              <!-- Payment Form inputs -->
-              <div class="col-md-7 order-md-1">
-                <h5 class="fw-bold mb-3 text-dark">اختر وسيلة إيداع الدفعة الأولى</h5>
-
-                <!-- Payment methods tabs -->
-                <div class="nav nav-pills gap-2 mb-4 d-flex" id="payment-tabs" role="tablist">
-                  <button class="nav-link flex-fill py-2 active text-center border" id="tab-card-btn"
-                    data-bs-toggle="pill" data-bs-target="#tab-card" type="button" role="tab" aria-selected="true">
-                    <i class="bi bi-credit-card-2-back me-1"></i> مدى / فيزا
-                  </button>
-                  <button class="nav-link flex-fill py-2 text-center border" id="tab-bank-btn" data-bs-toggle="pill"
-                    data-bs-target="#tab-bank" type="button" role="tab" aria-selected="false">
-                    <i class="bi bi-bank me-1"></i> تحويل مصرفي
-                  </button>
-                </div>
-
-                <div class="tab-content" id="payment-tab-content">
-
-                  <!-- Tab: Card -->
-                  <div class="tab-pane fade show active" id="tab-card" role="tabpanel" aria-labelledby="tab-card-btn">
-                    <form id="card-pay-form" class="needs-validation" novalidate>
-                      <div class="mb-3">
-                        <label class="form-label text-small fw-bold text-muted">اسم كرت الدفع (الاسم المكتوب على
-                          البطاقة)</label>
-                        <input type="text" class="form-control" placeholder="A. ALOTAIBI" required>
-                      </div>
-                      <div class="mb-3">
-                        <label class="form-label text-small fw-bold text-muted">رقم البطاقة</label>
-                        <input type="text" class="form-control" placeholder="4000 1234 5678 9010"
-                          pattern="^[0-9 ]{16,19}$" required>
-                      </div>
-                      <div class="row g-2 mb-4">
-                        <div class="col-7">
-                          <label class="form-label text-small fw-bold text-muted">تاريخ الانتهاء</label>
-                          <input type="text" class="form-control text-center" placeholder="MM/YY" required>
-                        </div>
-                        <div class="col-5">
-                          <label class="form-label text-small fw-bold text-muted">الرقم السري (CVV)</label>
-                          <input type="password" class="form-control text-center" placeholder="123"
-                            pattern="^[0-9]{3,4}$" required>
-                        </div>
-                      </div>
-                      <a href="../sponsor/dashboard.html" class="btn btn-primary w-100 py-3 fw-bold fs-5">
-                        إتمام عملية الفوترة والدفع الآمن
-                      </a>
-                    </form>
-                  </div>
-
-                  <!-- Tab: Bank Bank Transfer -->
-                  <div class="tab-pane fade" id="tab-bank" role="tabpanel" aria-labelledby="tab-bank-btn">
-                    <div class="alert alert-info py-3 mb-4 text-small">
-                      <h6 class="fw-bold mb-2"><i class="bi bi-info-circle-fill me-1"></i> تعليمات التحويل المصرفي</h6>
-                      <p class="mb-0">يرجى تحويل مبلغ الكفالة إلى حساب "مؤسسة كنف لكفالة الأيتام" المعتمد أدناه، ثم
-                        كتابة رقم مرجع التحويل أو إشعار التحويل لتأكيد الكفالة يدوياً.</p>
-                    </div>
-
-                    <div class="bg-light p-3 rounded-3 border mb-4 text-small">
-                      <div class="mb-2"><strong>البنك:</strong> بنك فلسطين (حساب كفالة أيتام غزة المعتمد)</div>
-                      <div class="mb-2"><strong>اسم الحساب:</strong> كنف لبناء ورعاية أيتام فلسطين</div>
-                      <div class="mb-2"><strong>رقم الآيبان:</strong> PS24BOPD000000000120455621</div>
-                    </div>
-
-                    <form id="bank-pay-form" class="needs-validation" novalidate>
-                      <div class="mb-3">
-                        <label class="form-label text-small fw-bold text-muted">رقم مرجع التحويل (الموجود في تطبيق
-                          بنكك)</label>
-                        <input type="text" id="bank-ref" class="form-control" placeholder="مثال: TRX9018227" required>
-                      </div>
-                      <div class="mb-4">
-                        <label class="form-label text-small fw-bold text-muted">إرفاق إشعار تحويل البنك
-                          (اختياري)</label>
-                        <input type="file" class="form-control text-small">
-                      </div>
-                      <a href="../sponsor/dashboard.html" class="btn btn-primary w-100 py-3 fw-bold fs-5 text-white">
-                        إرسال إشعار التحويل البنكي للمراجعة
-                      </a>
-                    </form>
-                  </div>
-
-                </div>
-
+              <!-- Pre-step back buttons link -->
+              <div class="d-flex justify-content-between border-top pt-4">
+                <a id="btn-back-step" href="step2.html" class="btn btn-outline-secondary px-4 py-2"><i
+                    class="bi bi-arrow-right-short align-middle fs-5"></i> تعديل بياناتي</a>
               </div>
-            </div>
 
-            <!-- Pre-step back buttons link -->
-            <div class="d-flex justify-content-between border-top pt-4">
-              <a id="btn-back-step" href="step2.html" class="btn btn-outline-secondary px-4 py-2"><i
-                  class="bi bi-arrow-right-short align-middle fs-5"></i> تعديل بياناتي</a>
             </div>
 
           </div>
-
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
+  </main>
   <footer class="kanaf-footer py-5 mt-5 pb-0">
     <div class="container py-4">
       <div class="row g-4">
