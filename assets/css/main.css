@@ -390,7 +390,7 @@ h6 {
   background: linear-gradient(90deg, var(--primary-green), var(--secondary-gold));
 }
 
-.step-indicator {
+/* .step-indicator {
   width: 55px;
   height: 55px;
   border-radius: 50%;
@@ -406,9 +406,9 @@ h6 {
   position: relative;
   transition: var(--transition-smooth);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.02);
-}
+} */
 
-.step-item.active .step-indicator {
+/* .step-item.active .step-indicator {
   border-color: var(--primary-green);
   background-color: var(--primary-green);
   color: #ffffff;
@@ -420,7 +420,7 @@ h6 {
   border-color: var(--success);
   background-color: var(--success);
   color: #ffffff;
-}
+} */
 
 /* Floating Decorative Elements */
 .floating-element {
