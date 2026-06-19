@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الإعدادات - منظومة كنف</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+
+    <style>
+        :root {
+            --primary-green: #1a5c32;
+            --primary-green-light: #e8f5ee;
+            --primary-green-soft: #d1ead9;
+            --sidebar-width: 260px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* ── Layout ── */
+        .dashboard-wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* ── Header ── */
+        .dashboard-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.75rem;
+            background: #fff;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .dashboard-container {
+            padding: 1.75rem;
+        }
+
+        /* ── Settings tabs nav ── */
+        .settings-nav {
+            background: #fff;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+
+        .settings-nav .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0.85rem 1.25rem;
+            color: #64748b;
+            font-weight: 500;
+            border-radius: 0;
+            border-bottom: 1px solid #f1f5f9;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .settings-nav .nav-link:last-child {
+            border-bottom: none;
+        }
+
+        .settings-nav .nav-link.active {
+            background: var(--primary-green-light);
+            color: var(--primary-green);
+            font-weight: 700;
+            border-right: 4px solid var(--primary-green);
+        }
+
+        .settings-nav .nav-link:hover:not(.active) {
+            background: #f8fafc;
+            color: var(--primary-green);
+        }
+
+        .settings-nav .nav-link i {
+            font-size: 1.1rem;
+        }
+
+        /* ── Settings panels ── */
+        .settings-panel {
+            background: #fff;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+
+        .settings-panel-header {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid #e9ecef;
+            background: #fafafa;
+        }
+
+        .settings-panel-body {
+            padding: 1.5rem;
+        }
+
+        /* ── Section dividers ── */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 1.5rem 0 1rem;
+            color: var(--primary-green);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e2e8f0;
+        }
+
+        /* ── Form controls ── */
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 0.2rem rgba(26, 92, 50, 0.15);
+        }
+
+        .form-label {
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: #374151;
+            margin-bottom: 0.4rem;
+        }
+
+        .form-text {
+            font-size: 0.78rem;
+            color: #94a3b8;
+        }
+
+        /* ── Toggle switch ── */
+        .form-check-input:checked {
+            background-color: var(--primary-green);
+            border-color: var(--primary-green);
+        }
+
+        /* ── Contact info card ── */
+        .contact-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: border-color 0.2s;
+        }
+
+        .contact-card:hover {
+            border-color: var(--primary-green);
+        }
+
+        .contact-card .contact-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-card .contact-meta {
+            flex: 1;
+            padding: 0 0.9rem;
+        }
+
+        .contact-card .contact-meta .label {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            margin-bottom: 1px;
+        }
+
+        .contact-card .contact-meta .value {
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 0.9rem;
+        }
+
+        /* ── Btn green ── */
+        .btn-primary-green {
+            background: var(--primary-green);
+            color: #fff;
+            border: none;
+        }
+
+        .btn-primary-green:hover {
+            background: #0d381c;
+            color: #fff;
+        }
+
+        /* ── Save bar ── */
+        .save-bar {
+            position: sticky;
+            bottom: 0;
+            background: #fff;
+            border-top: 1px solid #e2e8f0;
+            padding: 0.9rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        /* ── Role badge ── */
+        .role-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0.3rem 0.8rem;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+
+        /* ── Tab pane animation ── */
+        .tab-pane.active {
+            animation: fadeUp 0.2s ease;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(6px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ── Notification rows ── */
+        .notif-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .notif-row:last-child {
+            border-bottom: none;
+        }
+
+        .notif-row .notif-label {
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .notif-row .notif-desc {
+            font-size: 0.78rem;
+            color: #94a3b8;
+            margin-top: 1px;
+        }
+
+        /* ── Danger zone ── */
+        .danger-zone {
+            border: 1.5px solid #fee2e2;
+            border-radius: 12px;
+            padding: 1.25rem;
+            background: #fff5f5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <div class="sidebar d-flex flex-column" id="kanaf-sidebar-wrapper">
+            <div class="brand">
+                <!-- <img src="assets/images/logo.png" alt="كنف" height="35"> -->
+                <h5 class="text-primary-green mb-0 fw-bold d-inline-block">لوحة تحكّم كَنَفْ</h5>
+                <button type="button" class="btn-close btn-close-white d-lg-none ms-auto" aria-label="إغلاق القائمة"
+                    onclick="document.getElementById('kanaf-sidebar-wrapper').classList.remove('show'); document.getElementById('kanaf-sidebar-backdrop').classList.remove('show');"></button>
+            </div>
+
+            <ul class="sidebar-menu flex-grow-1" id="dynamic-menu-list">
+                <li class="menu-item" id="menu-dashboard">
+                    <a href="dashboard.html"><i class="bi bi-grid-1x2-fill"></i> لوحة التحكم الشاملة</a>
+                </li>
+                <li class="menu-item" id="menu-orphans">
+                    <a href="orphans.html"><i class="bi bi-people-fill"></i> إدارة الأيتام</a>
+                </li>
+                <li class="menu-item" id="menu-families">
+                    <a href="families.html"><i class="bi bi-house-fill"></i> إدارة العائلات والوصي</a>
+                </li>
+                <li class="menu-item" id="menu-sponsors">
+                    <a href="sponsors.html"><i class="bi bi-heart-fill"></i> إدارة الكافلين</a>
+                </li>
+                <li class="menu-item" id="menu-sponsorships">
+                    <a href="sponsorships.html"><i class="bi bi-arrow-repeat"></i> الكفالات النشطة</a>
+                </li>
+                <li class="menu-item" id="menu-payments">
+                    <a href="payments.html"><i class="bi bi-wallet2"></i> إدارة المدفوعات</a>
+                </li>
+                <li class="menu-item" id="menu-docs">
+                    <a href="documentation.html"><i class="bi bi-file-earmark-lock-fill"></i> مراجعة التوثيق</a>
+                </li>
+                <li class="menu-item" id="menu-users">
+                    <a href="users.html"><i class="bi bi-person-circle"></i> إدارة المستخدمين</a>
+                </li>
+                <li class="menu-item" id="menu-permissions">
+                    <a href="permissions.html"><i class="bi bi-key-fill"></i> الصلاحيات والأدوار</a>
+                </li>
+                <li class="menu-item" id="menu-reports">
+                    <a href="reports.html"><i class="bi bi-file-earmark-bar-graph-fill"></i> التقارير والتحليلات</a>
+                </li>
+                <li class="menu-item" id="menu-notifications">
+                    <a href="notifications.html"><i class="bi bi-send-fill"></i> الإرسال الجماعي والإشعار</a>
+                </li>
+                <li class="menu-item" id="menu-audit">
+                    <a href="audit-log.html"><i class="bi bi-journal-text"></i> سجل العمليات السري</a>
+                </li>
+                <li class="menu-item active" id="menu-settings">
+                    <a href="settings.html"><i class="bi bi-gear-fill"></i> الإعدادات</a>
+                </li>
+            </ul>
+
+            <!-- Back to main public site link -->
+            <div class="p-3 border-top mt-auto">
+                <a href="../index.html"
+                    class="btn btn-outline-primary w-full d-flex align-items-center justify-content-center gap-2 py-2">
+                    <i class="bi bi-arrow-right-short fs-5"></i>
+                    <span>العودة للرئيسية</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="dashboard-header">
+                <div class="d-flex align-items-center gap-3">
+                    <button class="btn btn-outline-primary d-lg-none" type="button"
+                        onclick="document.getElementById('kanaf-sidebar-wrapper').classList.toggle('show')">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <h4 class="fw-bold mb-0 text-dark">سجلات التدقيق الأمني ومراقبة تدفقات العمليات</h4>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center gap-2"
+                            type="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="../assets/images/admin.jpg" alt="رمز" class="rounded-circle" width="30"
+                                height="30" style="object-fit: cover;">
+                            <span class="text-small fw-bold">أ. عبد الرحمن البكري</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end shadow border-0" aria-labelledby="userMenu">
+                            <li><a class="dropdown-item text-small text-right" href="profile.html"><i
+                                        class="bi bi-gear-fill me-2 text-muted"></i> إعدادات حسابي</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item text-small text-danger text-right" href="../auth/login.html"><i
+                                        class="bi bi-box-arrow-right me-2"></i> خروج آمن</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-container">
+
+                <!-- Hero Banner -->
+                <div class="p-4 rounded-4 shadow-sm mb-4 text-white"
+                    style="background: linear-gradient(135deg, var(--primary-green) 0%, #0d381c 100%);">
+                    <div class="d-flex align-items-center gap-3">
+                        <div
+                            style="width:52px;height:52px;background:rgba(255,255,255,0.15);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;">
+                            <i class="bi bi-sliders"></i>
+                        </div>
+                        <div>
+                            <h4 class="fw-bold mb-1">إعدادات وضبط المنظومة</h4>
+                            <p class="mb-0 text-white-50 small">تحكم كامل في بيانات المنظمة، وسائل التواصل، الإشعارات،
+                                الصلاحيات، والأمان</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+
+                    <!-- ── Sidebar Nav ── -->
+                    <div class="col-lg-3">
+                        <div class="settings-nav">
+                            <div class="nav flex-column" id="settingsTab" role="tablist">
+                                <button class="nav-link active" id="tab-org" data-bs-toggle="tab"
+                                    data-bs-target="#panel-org" type="button">
+                                    <i class="bi bi-building"></i> بيانات المنظمة
+                                </button>
+                                <button class="nav-link" id="tab-contact" data-bs-toggle="tab"
+                                    data-bs-target="#panel-contact" type="button">
+                                    <i class="bi bi-telephone-fill"></i> وسائل التواصل
+                                </button>
+                                <button class="nav-link" id="tab-notif" data-bs-toggle="tab"
+                                    data-bs-target="#panel-notif" type="button">
+                                    <i class="bi bi-bell-fill"></i> الإشعارات والتنبيهات
+                                </button>
+                                <button class="nav-link" id="tab-users" data-bs-toggle="tab"
+                                    data-bs-target="#panel-users" type="button">
+                                    <i class="bi bi-people-fill"></i> المستخدمون والصلاحيات
+                                </button>
+                                <button class="nav-link" id="tab-payments" data-bs-toggle="tab"
+                                    data-bs-target="#panel-payments" type="button">
+                                    <i class="bi bi-cash-coin"></i> إعدادات الدفع
+                                </button>
+                                <button class="nav-link" id="tab-security" data-bs-toggle="tab"
+                                    data-bs-target="#panel-security" type="button">
+                                    <i class="bi bi-shield-lock-fill"></i> الأمان والنسخ الاحتياطي
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ── Panels ── -->
+                    <div class="col-lg-9">
+                        <div class="tab-content">
+
+                            <!-- ════ 1. بيانات المنظمة ════ -->
+                            <div class="tab-pane fade show active" id="panel-org">
+                                <div class="settings-panel">
+                                    <div class="settings-panel-header">
+                                        <h5 class="fw-bold mb-0 text-dark"><i
+                                                class="bi bi-building me-2 text-primary-green"
+                                                style="color:var(--primary-green)"></i>بيانات المنظمة الرسمية</h5>
+                                        <p class="text-muted small mb-0 mt-1">المعلومات الأساسية التي تظهر على الوثائق
+                                            والتقارير الرسمية</p>
+                                    </div>
+                                    <div class="settings-panel-body">
+
+                                        <!-- Logo -->
+                                        <div class="d-flex align-items-center gap-4 mb-4 p-3 rounded-3"
+                                            style="background:#f8fafc;border:1px solid #e2e8f0;">
+                                            <div
+                                                style="width:72px;height:72px;background:var(--primary-green);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:2rem;color:#fff;flex-shrink:0;">
+                                                <i class="bi bi-tree-fill"></i>
+                                            </div>
+                                            <div>
+                                                <div class="fw-bold mb-1">شعار المنظمة</div>
+                                                <div class="text-muted small mb-2">PNG أو JPG بحجم أقصى 2 ميغابايت</div>
+                                                <button class="btn btn-outline-secondary btn-sm"><i
+                                                        class="bi bi-upload me-1"></i>تغيير الشعار</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label">اسم المنظمة (عربي)</label>
+                                                <input type="text" class="form-control" value="منظومة كنف للكفالة">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">اسم المنظمة (إنجليزي)</label>
+                                                <input type="text" class="form-control" value="Kanaf Orphan Care">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">رقم الترخيص / السجل الرسمي</label>
+                                                <input type="text" class="form-control" value="NGO-2019-00148">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">البريد الإلكتروني الرسمي</label>
+                                                <input type="email" class="form-control" value="info@kanaf.org">
+                                            </div>
+                                            <div class="col-12">
+                                                <label class="form-label">العنوان الكامل</label>
+                                                <input type="text" class="form-control"
+                                                    value="نابلس، فلسطين - شارع المدينة، مبنى الخدمات الاجتماعية">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">الدولة / الإقليم</label>
+                                                <select class="form-select">
+                                                    <option selected>فلسطين</option>
+                                                    <option>الأردن</option>
+                                                    <option>لبنان</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">المدينة</label>
+                                                <input type="text" class="form-control" value="نابلس">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">الرمز البريدي</label>
+                                                <input type="text" class="form-control" value="44000">
+                                            </div>
+                                            <div class="col-12">
+                                                <label class="form-label">نبذة عن المنظمة (تظهر في التقارير)</label>
+                                                <textarea class="form-control"
+                                                    rows="3">منظومة كنف هي مبادرة إنسانية تُعنى برعاية الأطفال الأيتام وتأمين كفالتهم من خلال منظومة شاملة تربط بين الكافلين والأسر بإشراف متخصص.</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="save-bar">
+                                        <span class="text-muted small"><i class="bi bi-info-circle me-1"></i>آخر تحديث:
+                                            ١٠ يونيو ٢٠٢٦</span>
+                                        <button class="btn btn-primary-green px-4"
+                                            onclick="saveSection('بيانات المنظمة')">
+                                            <i class="bi bi-floppy-fill me-2"></i>حفظ التغييرات
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ════ 2. وسائل التواصل ════ -->
+                            <div class="tab-pane fade" id="panel-contact">
+                                <div class="settings-panel">
+                                    <div class="settings-panel-header">
+                                        <h5 class="fw-bold mb-0 text-dark"><i class="bi bi-telephone-fill me-2"
+                                                style="color:var(--primary-green)"></i>وسائل التواصل والاتصال</h5>
+                                        <p class="text-muted small mb-0 mt-1">قنوات التواصل الرسمية الظاهرة للكافلين
+                                            والجهات الخارجية</p>
+                                    </div>
+                                    <div class="settings-panel-body">
+
+                                        <!-- الهواتف -->
+                                        <div class="section-divider"><i class="bi bi-phone-fill"></i> أرقام الهاتف</div>
+                                        <div class="contact-card">
+                                            <div class="contact-icon bg-success-subtle text-success"><i
+                                                    class="bi bi-telephone-fill"></i></div>
+                                            <div class="contact-meta">
+                                                <div class="label">الهاتف الرئيسي</div>
+                                                <div class="value">+970 9 234 5678</div>
+                                            </div>
+                                            <button class="btn btn-outline-secondary btn-sm"
+                                                onclick="editContact('الهاتف الرئيسي')"><i
+                                                    class="bi bi-pencil"></i></button>
+                                        </div>
+                                        <div class="contact-card">
+                                            <div class="contact-icon bg-warning-subtle text-warning"><i
+                                                    class="bi bi-phone-fill"></i></div>
+                                            <div class="contact-meta">
+                                                <div class="label">هاتف الطوارئ / المنسق</div>
+                                                <div class="value">+970 59 876 5432</div>
+                                            </div>
+                                            <button class="btn btn-outline-secondary btn-sm"
+                                                onclick="editContact('هاتف الطوارئ')"><i
+                                                    class="bi bi-pencil"></i></button>
+                                        </div>
+                                        <div class="contact-card">
+                                            <div class="contact-icon bg-info-subtle text-info"><i
+                                                    class="bi bi-printer-fill"></i></div>
+                                            <div class="contact-meta">
+                                                <div class="label">رقم الفاكس</div>
+                                                <div class="value">+970 9 234 5679</div>
+                                            </div>
+                                            <button class="btn btn-outline-secondary btn-sm"
+                                                onclick="editContact('الفاكس')"><i class="bi bi-pencil"></i></button>
+                                        </div>
+
+                                        <!-- البريد الإلكتروني -->
+                                        <div class="section-divider"><i class="bi bi-envelope-fill"></i> البريد
+                                            الإلكتروني</div>
+                                        <div class="row g-3 mb-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label">البريد العام</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text bg-light"><i
+                                                            class="bi bi-envelope"></i></span>
+                                                    <input type="email" class="form-control" value="info@kanaf.org">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">بريد الدعم والشكاوى</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text bg-light"><i
+                                                            class="bi bi-envelope"></i></span>
+                                                    <input type="email" class="form-control" value="support@kanaf.org">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">بريد المحاسبة والمالية</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text bg-light"><i
+                                                            class="bi bi-envelope"></i></span>
+                                                    <input type="email" class="form-control" value="finance@kanaf.org">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">بريد التنسيق مع المانحين</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text bg-light"><i
+                                                            class="bi bi-envelope"></i></span>
+                                                    <input type="email" class="form-control" value="donors@kanaf.org">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- منصات التواصل الاجتماعي -->
+                                        <div class="section-divider"><i class="bi bi-share-fill"></i> منصات التواصل
+                                            الاجتماعي</div>
+                                        <div class="row g-3 mb-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label"><i
+                                                        class="bi bi-facebook text-primary me-1"></i>فيسبوك</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text bg-light"
+                                                        style="font-size:.8rem;color:#94a3b8;">facebook.com/</span>
+                                                    <input type="text" class="form-control" value="kanaf.org.ps">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label"><i
+                                                        class="bi bi-instagram text-danger me-1"></i>إنستغرام</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text bg-light"
+                                                        style="font-size:.8rem;color:#94a3b8;">instagram.com/</span>
+                                                    <input type="text" class="form-control" value="kanaf_care">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label"><i class="bi bi-twitter-x me-1"></i>تويتر /
+                                                    X</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text bg-light"
+                                                        style="font-size:.8rem;color:#94a3b8;">x.com/</span>
+                                                    <input type="text" class="form-control" value="kanaf_ps">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label"><i
+                                                        class="bi bi-youtube text-danger me-1"></i>يوتيوب</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text bg-light"
+                                                        style="font-size:.8rem;color:#94a3b8;">youtube.com/</span>
+                                                    <input type="text" class="form-control" placeholder="اختياري">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- واتساب وتيليغرام -->
+                                        <div class="section-divider"><i class="bi bi-chat-dots-fill"></i> قنوات المراسلة
+                                            الفورية</div>
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label"><i
+                                                        class="bi bi-whatsapp text-success me-1"></i>واتساب (خط
+                                                    التواصل)</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text bg-light"><i
+                                                            class="bi bi-plus">+</i></span>
+                                                    <input type="text" class="form-control" value="970591234567">
+                                                </div>
+                                                <div class="form-text">الرقم بدون مسافات، يبدأ بكود الدولة</div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label"><i
+                                                        class="bi bi-telegram text-info me-1"></i>تيليغرام (القناة /
+                                                    المجموعة)</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text bg-light"
+                                                        style="font-size:.8rem;color:#94a3b8;">t.me/</span>
+                                                    <input type="text" class="form-control" value="kanaf_news">
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="p-3 rounded-3"
+                                                    style="background:#f0fdf4;border:1px solid #bbf7d0;">
+                                                    <div class="d-flex align-items-start gap-2">
+                                                        <i class="bi bi-info-circle-fill text-success mt-1"></i>
+                                                        <div class="small text-success">
+                                                            <strong>تنبيه:</strong> معلومات التواصل المُدخلة هنا ستظهر
+                                                            تلقائياً في رسائل التأكيد المُرسلة للكافلين الجدد، وفي صفحة
+                                                            "اتصل بنا" في الموقع.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="save-bar">
+                                        <span class="text-muted small"><i class="bi bi-info-circle me-1"></i>آخر تحديث:
+                                            ٨ يونيو ٢٠٢٦</span>
+                                        <button class="btn btn-primary-green px-4"
+                                            onclick="saveSection('وسائل التواصل')">
+                                            <i class="bi bi-floppy-fill me-2"></i>حفظ التغييرات
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ════ 3. الإشعارات ════ -->
+                            <div class="tab-pane fade" id="panel-notif">
+                                <div class="settings-panel">
+                                    <div class="settings-panel-header">
+                                        <h5 class="fw-bold mb-0 text-dark"><i class="bi bi-bell-fill me-2"
+                                                style="color:var(--primary-green)"></i>الإشعارات والتنبيهات</h5>
+                                        <p class="text-muted small mb-0 mt-1">تحكم في متى وكيف يتلقى المسؤولون والكافلون
+                                            الإشعارات</p>
+                                    </div>
+                                    <div class="settings-panel-body">
+
+                                        <div class="section-divider"><i class="bi bi-person-lines-fill"></i> إشعارات
+                                            المسؤولين</div>
+                                        <div class="notif-row">
+                                            <div>
+                                                <div class="notif-label">تسجيل كافل جديد</div>
+                                                <div class="notif-desc">إشعار فوري عند تسجيل كافل جديد في المنظومة</div>
+                                            </div>
+                                            <div class="form-check form-switch ms-3">
+                                                <input class="form-check-input" type="checkbox" checked
+                                                    style="width:2.5em;height:1.3em;">
+                                            </div>
+                                        </div>
+                                        <div class="notif-row">
+                                            <div>
+                                                <div class="notif-label">وثيقة بانتظار المصادقة</div>
+                                                <div class="notif-desc">تنبيه عند رفع وثيقة جديدة تحتاج مراجعة ومصادقة
+                                                </div>
+                                            </div>
+                                            <div class="form-check form-switch ms-3">
+                                                <input class="form-check-input" type="checkbox" checked
+                                                    style="width:2.5em;height:1.3em;">
+                                            </div>
+                                        </div>
+                                        <div class="notif-row">
+                                            <div>
+                                                <div class="notif-label">دفعة مالية مستلمة</div>
+                                                <div class="notif-desc">إشعار عند تأكيد استلام حوالة مالية جديدة</div>
+                                            </div>
+                                            <div class="form-check form-switch ms-3">
+                                                <input class="form-check-input" type="checkbox" checked
+                                                    style="width:2.5em;height:1.3em;">
+                                            </div>
+                                        </div>
+                                        <div class="notif-row">
+                                            <div>
+                                                <div class="notif-label">كفالة على وشك الانتهاء</div>
+                                                <div class="notif-desc">تذكير قبل 30 يوماً من انتهاء مدة أي كفالة</div>
+                                            </div>
+                                            <div class="form-check form-switch ms-3">
+                                                <input class="form-check-input" type="checkbox" checked
+                                                    style="width:2.5em;height:1.3em;">
+                                            </div>
+                                        </div>
+                                        <div class="notif-row">
+                                            <div>
+                                                <div class="notif-label">تقرير شهري تلقائي</div>
+                                                <div class="notif-desc">إرسال ملخص شهري للمسؤولين في أول كل شهر</div>
+                                            </div>
+                                            <div class="form-check form-switch ms-3">
+                                                <input class="form-check-input" type="checkbox"
+                                                    style="width:2.5em;height:1.3em;">
+                                            </div>
+                                        </div>
+
+                                        <div class="section-divider"><i class="bi bi-heart-fill"></i> إشعارات الكافلين
+                                        </div>
+                                        <div class="notif-row">
+                                            <div>
+                                                <div class="notif-label">تأكيد استلام الدفعة</div>
+                                                <div class="notif-desc">إرسال رسالة تأكيد للكافل بعد توثيق الدفعة</div>
+                                            </div>
+                                            <div class="form-check form-switch ms-3">
+                                                <input class="form-check-input" type="checkbox" checked
+                                                    style="width:2.5em;height:1.3em;">
+                                            </div>
+                                        </div>
+                                        <div class="notif-row">
+                                            <div>
+                                                <div class="notif-label">تحديث حال الطفل المكفول</div>
+                                                <div class="notif-desc">إعلام الكافل عند رفع صور أو تقارير جديدة للطفل
+                                                </div>
+                                            </div>
+                                            <div class="form-check form-switch ms-3">
+                                                <input class="form-check-input" type="checkbox" checked
+                                                    style="width:2.5em;height:1.3em;">
+                                            </div>
+                                        </div>
+                                        <div class="notif-row">
+                                            <div>
+                                                <div class="notif-label">تذكير الدفعة القادمة</div>
+                                                <div class="notif-desc">تنبيه للكافل قبل 7 أيام من موعد الدفعة التالية
+                                                </div>
+                                            </div>
+                                            <div class="form-check form-switch ms-3">
+                                                <input class="form-check-input" type="checkbox" checked
+                                                    style="width:2.5em;height:1.3em;">
+                                            </div>
+                                        </div>
+
+                                        <div class="section-divider"><i class="bi bi-send-fill"></i> قناة إرسال
+                                            الإشعارات</div>
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label">قناة الإرسال الافتراضية</label>
+                                                <select class="form-select">
+                                                    <option selected>البريد الإلكتروني + واتساب</option>
+                                                    <option>البريد الإلكتروني فقط</option>
+                                                    <option>واتساب فقط</option>
+                                                    <option>إشعارات التطبيق فقط</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">توقيت إرسال الإشعارات اليومية</label>
+                                                <input type="time" class="form-control" value="09:00">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="save-bar">
+                                        <span class="text-muted small"><i class="bi bi-info-circle me-1"></i>آخر تحديث:
+                                            ٥ يونيو ٢٠٢٦</span>
+                                        <button class="btn btn-primary-green px-4" onclick="saveSection('الإشعارات')">
+                                            <i class="bi bi-floppy-fill me-2"></i>حفظ التغييرات
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ════ 4. المستخدمون والصلاحيات ════ -->
+                            <div class="tab-pane fade" id="panel-users">
+                                <div class="settings-panel">
+                                    <div
+                                        class="settings-panel-header d-flex align-items-center justify-content-between flex-wrap gap-2">
+                                        <div>
+                                            <h5 class="fw-bold mb-0 text-dark"><i class="bi bi-people-fill me-2"
+                                                    style="color:var(--primary-green)"></i>إدارة المستخدمين والصلاحيات
+                                            </h5>
+                                            <p class="text-muted small mb-0 mt-1">تحكم في أدوار الفريق ومستويات الوصول
+                                            </p>
+                                        </div>
+                                        <button class="btn btn-primary-green btn-sm" onclick="addUser()"><i
+                                                class="bi bi-person-plus-fill me-1"></i>إضافة مستخدم</button>
+                                    </div>
+                                    <div class="settings-panel-body">
+
+                                        <!-- Users Table -->
+                                        <div class="table-responsive">
+                                            <table class="table align-middle">
+                                                <thead style="background:#f8fafc;font-size:.82rem;color:#64748b;">
+                                                    <tr>
+                                                        <th>المستخدم</th>
+                                                        <th>الدور</th>
+                                                        <th>آخر دخول</th>
+                                                        <th>الحالة</th>
+                                                        <th>إجراء</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="users-tbody">
+                                                    <tr>
+                                                        <td>
+                                                            <div class="d-flex align-items-center gap-2">
+                                                                <div
+                                                                    style="width:36px;height:36px;background:var(--primary-green);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.85rem;">
+                                                                    أح</div>
+                                                                <div>
+                                                                    <div class="fw-semibold">أحمد الخطيب</div>
+                                                                    <div class="text-muted" style="font-size:.75rem;">
+                                                                        ahmed@kanaf.org</div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td><span class="role-badge"
+                                                                style="background:#fee2e2;color:#991b1b;"><i
+                                                                    class="bi bi-shield-fill-check"></i>إداري عام</span>
+                                                        </td>
+                                                        <td><span class="text-muted small">اليوم، ٩:١٤ ص</span></td>
+                                                        <td><span
+                                                                class="badge bg-success-subtle text-success border border-success-subtle">نشط</span>
+                                                        </td>
+                                                        <td>
+                                                            <div class="d-flex gap-1">
+                                                                <button class="btn btn-outline-secondary btn-sm"><i
+                                                                        class="bi bi-pencil"></i></button>
+                                                                <button class="btn btn-outline-danger btn-sm"
+                                                                    disabled><i class="bi bi-person-x"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="d-flex align-items-center gap-2">
+                                                                <div
+                                                                    style="width:36px;height:36px;background:#3b82f6;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.85rem;">
+                                                                    سا</div>
+                                                                <div>
+                                                                    <div class="fw-semibold">سارة النابلسي</div>
+                                                                    <div class="text-muted" style="font-size:.75rem;">
+                                                                        sara@kanaf.org</div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td><span class="role-badge"
+                                                                style="background:#dbeafe;color:#1d4ed8;"><i
+                                                                    class="bi bi-person-badge-fill"></i>منسق كبير</span>
+                                                        </td>
+                                                        <td><span class="text-muted small">أمس، ٤:٣٠ م</span></td>
+                                                        <td><span
+                                                                class="badge bg-success-subtle text-success border border-success-subtle">نشط</span>
+                                                        </td>
+                                                        <td>
+                                                            <div class="d-flex gap-1">
+                                                                <button class="btn btn-outline-secondary btn-sm"><i
+                                                                        class="bi bi-pencil"></i></button>
+                                                                <button class="btn btn-outline-danger btn-sm"><i
+                                                                        class="bi bi-person-x"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="d-flex align-items-center gap-2">
+                                                                <div
+                                                                    style="width:36px;height:36px;background:#8b5cf6;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.85rem;">
+                                                                    مح</div>
+                                                                <div>
+                                                                    <div class="fw-semibold">محمد عبد الرحمن</div>
+                                                                    <div class="text-muted" style="font-size:.75rem;">
+                                                                        mohamad@kanaf.org</div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td><span class="role-badge"
+                                                                style="background:#ede9fe;color:#6d28d9;"><i
+                                                                    class="bi bi-cash-stack"></i>مسؤول المالية</span>
+                                                        </td>
+                                                        <td><span class="text-muted small">١٠ يونيو ٢٠٢٦</span></td>
+                                                        <td><span
+                                                                class="badge bg-success-subtle text-success border border-success-subtle">نشط</span>
+                                                        </td>
+                                                        <td>
+                                                            <div class="d-flex gap-1">
+                                                                <button class="btn btn-outline-secondary btn-sm"><i
+                                                                        class="bi bi-pencil"></i></button>
+                                                                <button class="btn btn-outline-danger btn-sm"><i
+                                                                        class="bi bi-person-x"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="d-flex align-items-center gap-2">
+                                                                <div
+                                                                    style="width:36px;height:36px;background:#94a3b8;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.85rem;">
+                                                                    ري</div>
+                                                                <div>
+                                                                    <div class="fw-semibold">ريم حمدان</div>
+                                                                    <div class="text-muted" style="font-size:.75rem;">
+                                                                        reem@kanaf.org</div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td><span class="role-badge"
+                                                                style="background:#f1f5f9;color:#64748b;"><i
+                                                                    class="bi bi-eye-fill"></i>مراقب فقط</span></td>
+                                                        <td><span class="text-muted small">٣ يونيو ٢٠٢٦</span></td>
+                                                        <td><span
+                                                                class="badge bg-warning-subtle text-warning border border-warning-subtle">معلق</span>
+                                                        </td>
+                                                        <td>
+                                                            <div class="d-flex gap-1">
+                                                                <button class="btn btn-outline-secondary btn-sm"><i
+                                                                        class="bi bi-pencil"></i></button>
+                                                                <button class="btn btn-outline-danger btn-sm"><i
+                                                                        class="bi bi-person-x"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <!-- Permissions matrix hint -->
+                                        <div class="p-3 rounded-3 mt-2"
+                                            style="background:#fefce8;border:1px solid #fde68a;">
+                                            <div class="d-flex align-items-start gap-2">
+                                                <i class="bi bi-exclamation-triangle-fill text-warning mt-1"></i>
+                                                <div class="small text-warning-emphasis">
+                                                    <strong>ملاحظة:</strong> لتغيير صلاحيات دور معين أو إنشاء دور مخصص،
+                                                    توجه إلى صفحة <a href="#"
+                                                        class="text-warning-emphasis fw-bold">إدارة الأدوار
+                                                        والصلاحيات</a>.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ════ 5. إعدادات الدفع ════ -->
+                            <div class="tab-pane fade" id="panel-payments">
+                                <div class="settings-panel">
+                                    <div class="settings-panel-header">
+                                        <h5 class="fw-bold mb-0 text-dark"><i class="bi bi-cash-coin me-2"
+                                                style="color:var(--primary-green)"></i>إعدادات الدفع والكفالات المالية
+                                        </h5>
+                                        <p class="text-muted small mb-0 mt-1">تحكم في قيم الكفالات وطرق الدفع والعملات
+                                            المعتمدة</p>
+                                    </div>
+                                    <div class="settings-panel-body">
+
+                                        <div class="section-divider"><i class="bi bi-currency-dollar"></i> قيم الكفالات
+                                            الشهرية</div>
+                                        <div class="row g-3 mb-3">
+                                            <div class="col-md-4">
+                                                <label class="form-label">كفالة أساسية (شهري)</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text bg-light">$</span>
+                                                    <input type="number" class="form-control" value="30">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">كفالة شاملة (تعليم + صحة)</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text bg-light">$</span>
+                                                    <input type="number" class="form-control" value="50">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">كفالة متميزة (كاملة)</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text bg-light">$</span>
+                                                    <input type="number" class="form-control" value="75">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="section-divider"><i class="bi bi-bank2"></i> طرق الاستلام المعتمدة
+                                        </div>
+                                        <div class="row g-2 mb-3">
+                                            <div class="col-md-6">
+                                                <div class="form-check p-3 rounded-3 border">
+                                                    <input class="form-check-input" type="checkbox" id="pay-bank"
+                                                        checked>
+                                                    <label class="form-check-label fw-semibold" for="pay-bank"><i
+                                                            class="bi bi-bank me-1"></i> تحويل بنكي مباشر</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-check p-3 rounded-3 border">
+                                                    <input class="form-check-input" type="checkbox" id="pay-wise"
+                                                        checked>
+                                                    <label class="form-check-label fw-semibold" for="pay-wise"><i
+                                                            class="bi bi-send me-1"></i> Wise (TransferWise)</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-check p-3 rounded-3 border">
+                                                    <input class="form-check-input" type="checkbox" id="pay-western">
+                                                    <label class="form-check-label fw-semibold" for="pay-western"><i
+                                                            class="bi bi-globe me-1"></i> Western Union</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-check p-3 rounded-3 border">
+                                                    <input class="form-check-input" type="checkbox" id="pay-paypal">
+                                                    <label class="form-check-label fw-semibold" for="pay-paypal"><i
+                                                            class="bi bi-paypal me-1"></i> PayPal</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="section-divider"><i class="bi bi-calendar-check-fill"></i> دورة
+                                            الدفع</div>
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label">دورة الكفالة الافتراضية</label>
+                                                <select class="form-select">
+                                                    <option selected>شهري</option>
+                                                    <option>ربع سنوي</option>
+                                                    <option>نصف سنوي</option>
+                                                    <option>سنوي</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">يوم استحقاق الدفعة (من الشهر)</label>
+                                                <input type="number" class="form-control" min="1" max="28" value="1">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">العملة الافتراضية</label>
+                                                <select class="form-select">
+                                                    <option selected>USD — دولار أمريكي</option>
+                                                    <option>EUR — يورو</option>
+                                                    <option>GBP — جنيه إسترليني</option>
+                                                    <option>SAR — ريال سعودي</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">مهلة السماح لتأخر الدفع</label>
+                                                <div class="input-group">
+                                                    <input type="number" class="form-control" value="7">
+                                                    <span class="input-group-text bg-light">أيام</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="save-bar">
+                                        <span class="text-muted small"><i class="bi bi-info-circle me-1"></i>آخر تحديث:
+                                            ١ يونيو ٢٠٢٦</span>
+                                        <button class="btn btn-primary-green px-4"
+                                            onclick="saveSection('إعدادات الدفع')">
+                                            <i class="bi bi-floppy-fill me-2"></i>حفظ التغييرات
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ════ 6. الأمان والنسخ الاحتياطي ════ -->
+                            <div class="tab-pane fade" id="panel-security">
+                                <div class="settings-panel">
+                                    <div class="settings-panel-header">
+                                        <h5 class="fw-bold mb-0 text-dark"><i class="bi bi-shield-lock-fill me-2"
+                                                style="color:var(--primary-green)"></i>الأمان والنسخ الاحتياطي</h5>
+                                        <p class="text-muted small mb-0 mt-1">إعدادات حماية البيانات والنسخ الاحتياطي
+                                            الدوري</p>
+                                    </div>
+                                    <div class="settings-panel-body">
+
+                                        <div class="section-divider"><i class="bi bi-lock-fill"></i> إعدادات كلمة المرور
+                                        </div>
+                                        <div class="row g-3 mb-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label">الحد الأدنى لطول كلمة المرور</label>
+                                                <div class="input-group">
+                                                    <input type="number" class="form-control" value="8" min="6"
+                                                        max="32">
+                                                    <span class="input-group-text bg-light">أحرف</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">صلاحية الجلسة (تسجيل الدخول)</label>
+                                                <select class="form-select">
+                                                    <option>ساعة واحدة</option>
+                                                    <option selected>٨ ساعات</option>
+                                                    <option>٢٤ ساعة</option>
+                                                    <option>أسبوع</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="notif-row">
+                                            <div>
+                                                <div class="notif-label">التحقق الثنائي (2FA)</div>
+                                                <div class="notif-desc">إلزامي لجميع حسابات الإداريين</div>
+                                            </div>
+                                            <div class="form-check form-switch ms-3">
+                                                <input class="form-check-input" type="checkbox" checked
+                                                    style="width:2.5em;height:1.3em;">
+                                            </div>
+                                        </div>
+                                        <div class="notif-row">
+                                            <div>
+                                                <div class="notif-label">تسجيل جميع عمليات الدخول</div>
+                                                <div class="notif-desc">حفظ سجل كامل بكل محاولات الدخول والخروج</div>
+                                            </div>
+                                            <div class="form-check form-switch ms-3">
+                                                <input class="form-check-input" type="checkbox" checked
+                                                    style="width:2.5em;height:1.3em;">
+                                            </div>
+                                        </div>
+
+                                        <div class="section-divider"><i class="bi bi-cloud-arrow-up-fill"></i> النسخ
+                                            الاحتياطي</div>
+                                        <div class="row g-3 mb-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label">تكرار النسخ الاحتياطي التلقائي</label>
+                                                <select class="form-select">
+                                                    <option>يومي</option>
+                                                    <option selected>كل ٣ أيام</option>
+                                                    <option>أسبوعي</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">مدة الاحتفاظ بالنسخ</label>
+                                                <select class="form-select">
+                                                    <option>أسبوع واحد</option>
+                                                    <option selected>شهر واحد</option>
+                                                    <option>٣ أشهر</option>
+                                                    <option>٦ أشهر</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex gap-2 mb-4">
+                                            <button class="btn btn-outline-secondary btn-sm" onclick="runBackup()">
+                                                <i class="bi bi-cloud-upload me-1"></i>نسخ احتياطي الآن
+                                            </button>
+                                            <button class="btn btn-outline-secondary btn-sm">
+                                                <i class="bi bi-download me-1"></i>تنزيل آخر نسخة
+                                            </button>
+                                        </div>
+
+                                        <!-- Danger Zone -->
+                                        <div class="danger-zone">
+                                            <div class="fw-bold text-danger mb-2"><i
+                                                    class="bi bi-exclamation-triangle-fill me-1"></i>منطقة الخطر</div>
+                                            <p class="text-muted small mb-3">الإجراءات التالية لا يمكن التراجع عنها.
+                                                تأكد قبل المتابعة.</p>
+                                            <div class="d-flex flex-wrap gap-2">
+                                                <button class="btn btn-outline-danger btn-sm"
+                                                    onclick="confirmDanger('مسح سجلات التدقيق القديمة (أكثر من سنة)')">
+                                                    <i class="bi bi-trash2 me-1"></i>مسح سجلات قديمة
+                                                </button>
+                                                <button class="btn btn-outline-danger btn-sm"
+                                                    onclick="confirmDanger('إعادة ضبط إعدادات المنظومة للوضع الافتراضي')">
+                                                    <i class="bi bi-arrow-counterclockwise me-1"></i>إعادة ضبط الإعدادات
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="save-bar">
+                                        <span class="text-muted small"><i class="bi bi-info-circle me-1"></i>آخر تحديث:
+                                            ٧ يونيو ٢٠٢٦</span>
+                                        <button class="btn btn-primary-green px-4" onclick="saveSection('الأمان')">
+                                            <i class="bi bi-floppy-fill me-2"></i>حفظ التغييرات
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!-- end tab-content -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
