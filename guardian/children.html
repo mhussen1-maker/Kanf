@@ -8,6 +8,11 @@
   <link rel="stylesheet" href="../assets/css/bootstrap.rtl.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
   <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <style>
+    .border-dashed {
+      border-style: dashed !important;
+    }
+  </style>
 </head>
 
 <body>
@@ -17,7 +22,6 @@
     <div id="kanaf-sidebar">
       <div class="sidebar d-flex flex-column" id="kanaf-sidebar-wrapper">
         <div class="brand">
-          <!-- <img src="assets/images/logo.png" alt="كنف" height="35"> -->
           <h5 class="text-primary-green mb-0 fw-bold d-inline-block">لوحة تحكّم كَنَفْ</h5>
           <button type="button" class="btn-close btn-close-white d-lg-none ms-auto" aria-label="إغلاق القائمة"
             onclick="document.getElementById('kanaf-sidebar-wrapper').classList.remove('show'); document.getElementById('kanaf-sidebar-backdrop').classList.remove('show');"></button>
@@ -41,7 +45,6 @@
           </li>
         </ul>
 
-        <!-- Back to main public site link -->
         <div class="p-3 border-top mt-auto">
           <a href="../index.html"
             class="btn btn-outline-primary w-full d-flex align-items-center justify-content-center gap-2 py-2">
@@ -217,7 +220,7 @@
     </div>
   </div>
 
-  <!-- Modal: تفاصيل يوسف سليمان الكفارنة -->
+  <!-- ===== Modal 1: يوسف سليمان الكفارنة ===== -->
   <div class="modal fade" id="modal1" tabindex="-1">
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
       <div class="modal-content">
@@ -319,6 +322,90 @@
                   </div>
                 </div>
               </div>
+
+              <!-- ===== قسم الشهادات والوثائق ===== -->
+              <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                  <div class="card-header bg-light fw-bold d-flex justify-content-between align-items-center">
+                    <span><i class="bi bi-folder2-open me-2 text-primary-green"></i>الشهادات والوثائق المرفوعة</span>
+                    <a href="upload-docs.html?id=1" class="btn btn-primary btn-sm">
+                      <i class="bi bi-cloud-arrow-up me-1"></i> رفع شهادة جديدة
+                    </a>
+                  </div>
+                  <div class="card-body">
+                    <div class="row g-3">
+
+                      <!-- وثيقة 1 -->
+                      <div class="col-md-4">
+                        <div class="border rounded-3 p-3 bg-light d-flex flex-column gap-2">
+                          <div class="d-flex align-items-center gap-2">
+                            <div class="p-2 bg-success-subtle rounded-2">
+                              <i class="bi bi-file-earmark-pdf text-success fs-5"></i>
+                            </div>
+                            <div class="flex-grow-1 overflow-hidden">
+                              <p class="fw-bold text-small mb-0 text-truncate">شهادة الفصل الأول 2024</p>
+                              <span class="text-caption text-muted">PDF • 1.2 MB</span>
+                            </div>
+                          </div>
+                          <div class="d-flex gap-1 text-caption text-muted align-items-center">
+                            <i class="bi bi-calendar2 me-1"></i> رُفعت: 15 يناير 2024
+                          </div>
+                          <div class="d-flex gap-2">
+                            <a href="#" class="btn btn-outline-success btn-sm flex-grow-1">
+                              <i class="bi bi-eye me-1"></i> عرض
+                            </a>
+                            <a href="#" class="btn btn-outline-secondary btn-sm flex-grow-1">
+                              <i class="bi bi-download me-1"></i> تحميل
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- وثيقة 2 -->
+                      <div class="col-md-4">
+                        <div class="border rounded-3 p-3 bg-light d-flex flex-column gap-2">
+                          <div class="d-flex align-items-center gap-2">
+                            <div class="p-2 bg-info-subtle rounded-2">
+                              <i class="bi bi-file-earmark-image text-info fs-5"></i>
+                            </div>
+                            <div class="flex-grow-1 overflow-hidden">
+                              <p class="fw-bold text-small mb-0 text-truncate">تقرير متابعة مدرسي</p>
+                              <span class="text-caption text-muted">PDF • 0.8 MB</span>
+                            </div>
+                          </div>
+                          <div class="d-flex gap-1 text-caption text-muted align-items-center">
+                            <i class="bi bi-calendar2 me-1"></i> رُفعت: 10 مارس 2024
+                          </div>
+                          <div class="d-flex gap-2">
+                            <a href="#" class="btn btn-outline-success btn-sm flex-grow-1">
+                              <i class="bi bi-eye me-1"></i> عرض
+                            </a>
+                            <a href="#" class="btn btn-outline-secondary btn-sm flex-grow-1">
+                              <i class="bi bi-download me-1"></i> تحميل
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- خانة رفع جديدة -->
+                      <div class="col-md-4">
+                        <div
+                          class="border border-dashed rounded-3 p-3 bg-white d-flex flex-column align-items-center justify-content-center text-center gap-2"
+                          style="min-height: 120px;">
+                          <i class="bi bi-cloud-arrow-up text-muted fs-4"></i>
+                          <p class="text-caption text-muted mb-0">رفع وثيقة أو شهادة جديدة</p>
+                          <a href="upload-docs.html?id=1" class="btn btn-outline-primary btn-sm">
+                            <i class="bi bi-plus-circle me-1"></i> إضافة
+                          </a>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- ===== نهاية قسم الشهادات ===== -->
+
             </div>
           </div>
         </div>
@@ -331,7 +418,7 @@
     </div>
   </div>
 
-  <!-- Modal: تفاصيل شهد محمد الدلو -->
+  <!-- ===== Modal 2: شهد محمد الدلو ===== -->
   <div class="modal fade" id="modal2" tabindex="-1">
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
       <div class="modal-content">
@@ -433,6 +520,90 @@
                   </div>
                 </div>
               </div>
+
+              <!-- ===== قسم الشهادات والوثائق ===== -->
+              <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                  <div class="card-header bg-light fw-bold d-flex justify-content-between align-items-center">
+                    <span><i class="bi bi-folder2-open me-2 text-primary-green"></i>الشهادات والوثائق المرفوعة</span>
+                    <a href="upload-docs.html?id=2" class="btn btn-primary btn-sm">
+                      <i class="bi bi-cloud-arrow-up me-1"></i> رفع شهادة جديدة
+                    </a>
+                  </div>
+                  <div class="card-body">
+                    <div class="row g-3">
+
+                      <!-- وثيقة 1 -->
+                      <div class="col-md-4">
+                        <div class="border rounded-3 p-3 bg-light d-flex flex-column gap-2">
+                          <div class="d-flex align-items-center gap-2">
+                            <div class="p-2 bg-success-subtle rounded-2">
+                              <i class="bi bi-file-earmark-pdf text-success fs-5"></i>
+                            </div>
+                            <div class="flex-grow-1 overflow-hidden">
+                              <p class="fw-bold text-small mb-0 text-truncate">شهادة الفصل الأول 2024</p>
+                              <span class="text-caption text-muted">PDF • 2.1 MB</span>
+                            </div>
+                          </div>
+                          <div class="d-flex gap-1 text-caption text-muted align-items-center">
+                            <i class="bi bi-calendar2 me-1"></i> رُفعت: 20 يناير 2024
+                          </div>
+                          <div class="d-flex gap-2">
+                            <a href="#" class="btn btn-outline-success btn-sm flex-grow-1">
+                              <i class="bi bi-eye me-1"></i> عرض
+                            </a>
+                            <a href="#" class="btn btn-outline-secondary btn-sm flex-grow-1">
+                              <i class="bi bi-download me-1"></i> تحميل
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- وثيقة 2 -->
+                      <div class="col-md-4">
+                        <div class="border rounded-3 p-3 bg-light d-flex flex-column gap-2">
+                          <div class="d-flex align-items-center gap-2">
+                            <div class="p-2 bg-warning-subtle rounded-2">
+                              <i class="bi bi-file-earmark-image text-warning fs-5"></i>
+                            </div>
+                            <div class="flex-grow-1 overflow-hidden">
+                              <p class="fw-bold text-small mb-0 text-truncate">شهادة الفصل الثاني 2024</p>
+                              <span class="text-caption text-muted">PNG • 1.5 MB</span>
+                            </div>
+                          </div>
+                          <div class="d-flex gap-1 text-caption text-muted align-items-center">
+                            <i class="bi bi-calendar2 me-1"></i> رُفعت: 5 يونيو 2024
+                          </div>
+                          <div class="d-flex gap-2">
+                            <a href="#" class="btn btn-outline-success btn-sm flex-grow-1">
+                              <i class="bi bi-eye me-1"></i> عرض
+                            </a>
+                            <a href="#" class="btn btn-outline-secondary btn-sm flex-grow-1">
+                              <i class="bi bi-download me-1"></i> تحميل
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- خانة رفع جديدة -->
+                      <div class="col-md-4">
+                        <div
+                          class="border border-dashed rounded-3 p-3 bg-white d-flex flex-column align-items-center justify-content-center text-center gap-2"
+                          style="min-height: 120px;">
+                          <i class="bi bi-cloud-arrow-up text-muted fs-4"></i>
+                          <p class="text-caption text-muted mb-0">رفع وثيقة أو شهادة جديدة</p>
+                          <a href="upload-docs.html?id=2" class="btn btn-outline-primary btn-sm">
+                            <i class="bi bi-plus-circle me-1"></i> إضافة
+                          </a>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- ===== نهاية قسم الشهادات ===== -->
+
             </div>
           </div>
         </div>
@@ -445,7 +616,7 @@
     </div>
   </div>
 
-  <!-- Modal: تفاصيل لمى محمود الكفارنة -->
+  <!-- ===== Modal 3: لمى محمود الكفارنة ===== -->
   <div class="modal fade" id="modal3" tabindex="-1">
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
       <div class="modal-content">
@@ -547,6 +718,64 @@
                   </div>
                 </div>
               </div>
+
+              <!-- ===== قسم الشهادات والوثائق ===== -->
+              <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                  <div class="card-header bg-light fw-bold d-flex justify-content-between align-items-center">
+                    <span><i class="bi bi-folder2-open me-2 text-primary-green"></i>الشهادات والوثائق المرفوعة</span>
+                    <a href="upload-docs.html?id=3" class="btn btn-primary btn-sm">
+                      <i class="bi bi-cloud-arrow-up me-1"></i> رفع شهادة جديدة
+                    </a>
+                  </div>
+                  <div class="card-body">
+                    <div class="row g-3">
+
+                      <!-- وثيقة 1 -->
+                      <div class="col-md-4">
+                        <div class="border rounded-3 p-3 bg-light d-flex flex-column gap-2">
+                          <div class="d-flex align-items-center gap-2">
+                            <div class="p-2 bg-success-subtle rounded-2">
+                              <i class="bi bi-file-earmark-pdf text-success fs-5"></i>
+                            </div>
+                            <div class="flex-grow-1 overflow-hidden">
+                              <p class="fw-bold text-small mb-0 text-truncate">شهادة الفصل الأول 2024</p>
+                              <span class="text-caption text-muted">PDF • 1.8 MB</span>
+                            </div>
+                          </div>
+                          <div class="d-flex gap-1 text-caption text-muted align-items-center">
+                            <i class="bi bi-calendar2 me-1"></i> رُفعت: 18 يناير 2024
+                          </div>
+                          <div class="d-flex gap-2">
+                            <a href="#" class="btn btn-outline-success btn-sm flex-grow-1">
+                              <i class="bi bi-eye me-1"></i> عرض
+                            </a>
+                            <a href="#" class="btn btn-outline-secondary btn-sm flex-grow-1">
+                              <i class="bi bi-download me-1"></i> تحميل
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- خانة رفع جديدة -->
+                      <div class="col-md-4">
+                        <div
+                          class="border border-dashed rounded-3 p-3 bg-white d-flex flex-column align-items-center justify-content-center text-center gap-2"
+                          style="min-height: 120px;">
+                          <i class="bi bi-cloud-arrow-up text-muted fs-4"></i>
+                          <p class="text-caption text-muted mb-0">رفع وثيقة أو شهادة جديدة</p>
+                          <a href="upload-docs.html?id=3" class="btn btn-outline-primary btn-sm">
+                            <i class="bi bi-plus-circle me-1"></i> إضافة
+                          </a>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- ===== نهاية قسم الشهادات ===== -->
+
             </div>
           </div>
         </div>
