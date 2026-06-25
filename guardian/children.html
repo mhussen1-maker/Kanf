@@ -110,6 +110,7 @@
                 <table class="table text-right text-small">
                   <thead>
                     <tr>
+                      <th>#</th>
                       <th>اسم وجنس الطفل اليتيم</th>
                       <th>العمر الحالي</th>
                       <th>المرحلة الدراسية</th>
@@ -120,6 +121,7 @@
                   </thead>
                   <tbody>
                     <tr>
+                      <td class="fw-bold text-muted">1</td>
                       <td>
                         <div class="d-flex align-items-center gap-3">
                           <img src="../assets/images/orphan-1.png" alt="يوسف الكفارنة" class="rounded-circle shadow-xs"
@@ -138,6 +140,8 @@
                       </td>
                       <td>
                         <div class="d-flex gap-2 justify-content-center">
+                          <a href="#" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#modal1"><i class="bi bi-eye"></i> تفاصيل</a>
                           <a href="child-form.html?id=1" class="btn btn-outline-primary btn-sm"><i
                               class="bi bi-pencil-square"></i> تعديل البيانات</a>
                           <a href="#" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i> شطب</a>
@@ -145,6 +149,7 @@
                       </td>
                     </tr>
                     <tr>
+                      <td class="fw-bold text-muted">2</td>
                       <td>
                         <div class="d-flex align-items-center gap-3">
                           <img src="../assets/images/orphan-2.png" alt="شهد الدلو" class="rounded-circle shadow-xs"
@@ -163,6 +168,8 @@
                       </td>
                       <td>
                         <div class="d-flex gap-2 justify-content-center">
+                          <a href="#" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#modal2"><i class="bi bi-eye"></i> تفاصيل</a>
                           <a href="child-form.html?id=2" class="btn btn-outline-primary btn-sm"><i
                               class="bi bi-pencil-square"></i> تعديل البيانات</a>
                           <a href="#" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i> شطب</a>
@@ -170,6 +177,7 @@
                       </td>
                     </tr>
                     <tr>
+                      <td class="fw-bold text-muted">3</td>
                       <td>
                         <div class="d-flex align-items-center gap-3">
                           <img src="../assets/images/orphan-3.png" alt="لمى الكفارنة" class="rounded-circle shadow-xs"
@@ -188,6 +196,8 @@
                       </td>
                       <td>
                         <div class="d-flex gap-2 justify-content-center">
+                          <a href="#" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#modal3"><i class="bi bi-eye"></i> تفاصيل</a>
                           <a href="child-form.html?id=3" class="btn btn-outline-primary btn-sm"><i
                               class="bi bi-pencil-square"></i> تعديل البيانات</a>
                           <a href="#" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i> شطب</a>
@@ -206,6 +216,349 @@
 
     </div>
   </div>
+
+  <!-- Modal: تفاصيل يوسف سليمان الكفارنة -->
+  <div class="modal fade" id="modal1" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><i class="bi bi-person-vcard me-2"></i>تفاصيل اليتيم</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="text-center mb-4">
+              <div
+                class="rounded-circle bg-success-subtle d-flex align-items-center justify-content-center fw-bold text-success mx-auto mb-3"
+                style="width:90px;height:90px;font-size:32px;">ي</div>
+              <h4 class="fw-bold">يوسف سليمان الكفارنة</h4>
+              <span class="badge bg-success">مكفول</span>
+            </div>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="card border-0 shadow-sm">
+                  <div class="card-header bg-light fw-bold">بيانات اليتيم</div>
+                  <div class="card-body">
+                    <table class="table table-sm">
+                      <tr>
+                        <th width="40%">رقم التعريف</th>
+                        <td>#1</td>
+                      </tr>
+                      <tr>
+                        <th>الاسم</th>
+                        <td>يوسف سليمان الكفارنة</td>
+                      </tr>
+                      <tr>
+                        <th>العمر</th>
+                        <td>7 سنوات</td>
+                      </tr>
+                      <tr>
+                        <th>الجنس</th>
+                        <td>ذكر</td>
+                      </tr>
+                      <tr>
+                        <th>البلد</th>
+                        <td>فلسطين</td>
+                      </tr>
+                      <tr>
+                        <th>المدينة</th>
+                        <td>شمال غزة</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card border-0 shadow-sm">
+                  <div class="card-header bg-light fw-bold">الحالة التعليمية والصحية</div>
+                  <div class="card-body">
+                    <table class="table table-sm">
+                      <tr>
+                        <th width="40%">الحالة التعليمية</th>
+                        <td>المرحلة الابتدائية - الصف الأول</td>
+                      </tr>
+                      <tr>
+                        <th>الحالة الصحية</th>
+                        <td>سليم</td>
+                      </tr>
+                      <tr>
+                        <th>التقييم</th>
+                        <td>5/5</td>
+                      </tr>
+                      <tr>
+                        <th>رقم العائلة</th>
+                        <td>101</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                  <div class="card-header bg-light fw-bold">بيانات الكفالة</div>
+                  <div class="card-body">
+                    <table class="table table-sm">
+                      <tr>
+                        <th width="25%">المبلغ الشهري</th>
+                        <td>$ 80</td>
+                      </tr>
+                      <tr>
+                        <th>حالة الكفالة</th>
+                        <td>نشط</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                  <div class="card-header bg-light fw-bold">قصة اليتيم</div>
+                  <div class="card-body">
+                    <p class="mb-0">ناجي وحيد من عائلته التي استشهدت في شمال غزة. يعيش الآن مع جده في مركز إيواء بدير
+                      البلح برعاية جيدة ولكنه يحتاج مستلزمات أساسية وطبابة مستمرة.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="child-form.html?id=1" class="btn btn-outline-primary btn-sm"><i class="bi bi-pencil-square me-1"></i>
+            تعديل البيانات</a>
+          <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">إغلاق</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: تفاصيل شهد محمد الدلو -->
+  <div class="modal fade" id="modal2" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><i class="bi bi-person-vcard me-2"></i>تفاصيل اليتيمة</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="text-center mb-4">
+              <div
+                class="rounded-circle bg-success-subtle d-flex align-items-center justify-content-center fw-bold text-success mx-auto mb-3"
+                style="width:90px;height:90px;font-size:32px;">ش</div>
+              <h4 class="fw-bold">شهد محمد الدلو</h4>
+              <span class="badge bg-success">مكفولة</span>
+            </div>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="card border-0 shadow-sm">
+                  <div class="card-header bg-light fw-bold">بيانات اليتيمة</div>
+                  <div class="card-body">
+                    <table class="table table-sm">
+                      <tr>
+                        <th width="40%">رقم التعريف</th>
+                        <td>#2</td>
+                      </tr>
+                      <tr>
+                        <th>الاسم</th>
+                        <td>شهد محمد الدلو</td>
+                      </tr>
+                      <tr>
+                        <th>العمر</th>
+                        <td>9 سنوات</td>
+                      </tr>
+                      <tr>
+                        <th>الجنس</th>
+                        <td>أنثى</td>
+                      </tr>
+                      <tr>
+                        <th>البلد</th>
+                        <td>فلسطين</td>
+                      </tr>
+                      <tr>
+                        <th>المدينة</th>
+                        <td>خانيونس</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card border-0 shadow-sm">
+                  <div class="card-header bg-light fw-bold">الحالة التعليمية والصحية</div>
+                  <div class="card-body">
+                    <table class="table table-sm">
+                      <tr>
+                        <th width="40%">الحالة التعليمية</th>
+                        <td>المرحلة الابتدائية - الصف الثالث</td>
+                      </tr>
+                      <tr>
+                        <th>الحالة الصحية</th>
+                        <td>سليمة</td>
+                      </tr>
+                      <tr>
+                        <th>التقييم</th>
+                        <td>5/5</td>
+                      </tr>
+                      <tr>
+                        <th>رقم العائلة</th>
+                        <td>102</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                  <div class="card-header bg-light fw-bold">بيانات الكفالة</div>
+                  <div class="card-body">
+                    <table class="table table-sm">
+                      <tr>
+                        <th width="25%">المبلغ الشهري</th>
+                        <td>$ 90</td>
+                      </tr>
+                      <tr>
+                        <th>حالة الكفالة</th>
+                        <td>نشط</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                  <div class="card-header bg-light fw-bold">قصة اليتيمة</div>
+                  <div class="card-body">
+                    <p class="mb-0">فقدت شهد والدها وتعيش الآن مع والدتها وإخوتها في مدينة خانيونس، وتحتاج إلى دعم
+                      مستمر لمواصلة تعليمها وتلبية احتياجاتها الأساسية.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="child-form.html?id=2" class="btn btn-outline-primary btn-sm"><i class="bi bi-pencil-square me-1"></i>
+            تعديل البيانات</a>
+          <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">إغلاق</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: تفاصيل لمى محمود الكفارنة -->
+  <div class="modal fade" id="modal3" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><i class="bi bi-person-vcard me-2"></i>تفاصيل اليتيمة</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="text-center mb-4">
+              <div
+                class="rounded-circle bg-warning-subtle d-flex align-items-center justify-content-center fw-bold text-warning mx-auto mb-3"
+                style="width:90px;height:90px;font-size:32px;">ل</div>
+              <h4 class="fw-bold">لمى محمود الكفارنة</h4>
+              <span class="badge bg-warning text-dark">بانتظار كفيل</span>
+            </div>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="card border-0 shadow-sm">
+                  <div class="card-header bg-light fw-bold">بيانات اليتيمة</div>
+                  <div class="card-body">
+                    <table class="table table-sm">
+                      <tr>
+                        <th width="40%">رقم التعريف</th>
+                        <td>#3</td>
+                      </tr>
+                      <tr>
+                        <th>الاسم</th>
+                        <td>لمى محمود الكفارنة</td>
+                      </tr>
+                      <tr>
+                        <th>العمر</th>
+                        <td>12 سنوات</td>
+                      </tr>
+                      <tr>
+                        <th>الجنس</th>
+                        <td>أنثى</td>
+                      </tr>
+                      <tr>
+                        <th>البلد</th>
+                        <td>فلسطين</td>
+                      </tr>
+                      <tr>
+                        <th>المدينة</th>
+                        <td>دير البلح</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card border-0 shadow-sm">
+                  <div class="card-header bg-light fw-bold">الحالة التعليمية والصحية</div>
+                  <div class="card-body">
+                    <table class="table table-sm">
+                      <tr>
+                        <th width="40%">الحالة التعليمية</th>
+                        <td>المرحلة الإعدادية - الصف السابع</td>
+                      </tr>
+                      <tr>
+                        <th>الحالة الصحية</th>
+                        <td>سليمة</td>
+                      </tr>
+                      <tr>
+                        <th>التقييم</th>
+                        <td>5/5</td>
+                      </tr>
+                      <tr>
+                        <th>رقم العائلة</th>
+                        <td>103</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                  <div class="card-header bg-light fw-bold">بيانات الكفالة</div>
+                  <div class="card-body">
+                    <table class="table table-sm">
+                      <tr>
+                        <th width="25%">المبلغ الشهري</th>
+                        <td>$ 100</td>
+                      </tr>
+                      <tr>
+                        <th>حالة الكفالة</th>
+                        <td>بانتظار كفيل</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                  <div class="card-header bg-light fw-bold">قصة اليتيمة</div>
+                  <div class="card-body">
+                    <p class="mb-0">تعيش لمى مع عائلتها الممتدة في مدينة دير البلح بعد فقدان والدها، وتحتاج إلى كفيل
+                      لمساعدتها في إكمال تعليمها وتلبية احتياجاتها اليومية.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="child-form.html?id=3" class="btn btn-outline-primary btn-sm"><i class="bi bi-pencil-square me-1"></i>
+            تعديل البيانات</a>
+          <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">إغلاق</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="../assets/js/bootstrap.bundle.min.js"></script>
 </body>
 
